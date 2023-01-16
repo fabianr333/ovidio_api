@@ -32,3 +32,16 @@ def product_list(request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def product_view(request,id):
+    """
+    List all the products for non protected views
+    """
+    if request.method == 'GET':
+        product = Product.objects.get(id=id)
+        serializer = ProductSerializer(product)
+        # Increment the number ov views
+        product.count +=1
+        product.save()
+        return Response(serializer.data)
