@@ -9,4 +9,6 @@ router.register(r'brands', views.BrandViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # Non protected urls
+    path('prods/', views.product_list)
 ]
