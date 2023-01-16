@@ -14,6 +14,6 @@ class BrandViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allow brands to be viewed or edited
     """
-    queryset = Brand.objects.all().order_by('-id')
+    queryset = Brand.objects.all()
     serializer_class = BrandSerializer
     permission_classes = []
