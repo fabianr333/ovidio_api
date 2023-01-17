@@ -7,8 +7,8 @@ class Brand(models.Model):
         return self.name
 
 class Product(models.Model):
-    sku = models.CharField(max_length=8)
+    sku = models.CharField(max_length=8, unique = True)
     name = models.CharField(max_length=40)
     price = models.FloatField()
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    count = models.IntegerField()
+    count = models.IntegerField(default=0)
